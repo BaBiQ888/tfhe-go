@@ -8,8 +8,13 @@ ARCH="$(uname -m)"                              # arm64 / x86_64
 # Default to your public release location
 ARTIFACT_BASE="${ARTIFACT_BASE:-https://github.com/BaBiQ888/tfhe-go/releases/download}"
 
-ZIP_NAME="tfhe-release-${OS}-${ARCH}.zip"
-URL="${ARTIFACT_BASE}/${TFHE_VERSION}/${ZIP_NAME}"
+if [[ "${OS}" == "linux" ]]; then
+  PKG_NAME="tfhe-release-${OS}-${ARCH}.tar.gz"
+else
+  PKG_NAME="tfhe-release-${OS}-${ARCH}.zip"
+fi
+
+URL="${ARTIFACT_BASE}/${TFHE_VERSION}/${PKG_NAME}"
 
 DEST_DIR="tfhe-c/release"
 TMP_ZIP="$(mktemp -t tfhe-XXXXXX.zip)"
@@ -21,7 +26,11 @@ echo ">> Preparing ${DEST_DIR}"
 mkdir -p "${DEST_DIR}"
 
 echo ">> Unpacking to ${DEST_DIR}"
-unzip -o "${TMP_ZIP}" -d "${DEST_DIR}"
+if [[ "${PKG_NAME}" == *.zip ]]; then
+  unzip -o "${TMP_ZIP}" -d "${DEST_DIR}"
+else
+  tar -xzf "${TMP_ZIP}" -C "${DEST_DIR}"
+fi
 
 echo ">> Done. Files in ${DEST_DIR}:"
 ls -l "${DEST_DIR}"
