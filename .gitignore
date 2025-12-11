@@ -1,0 +1,24 @@
+# Go build/cache outputs
+.gocache
+bin/
+dist/
+tmp/
+*.out
+*.test
+coverage*.txt
+
+# Dependencies (optional vendoring)
+vendor/
+
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
+
+# cgo / native build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+tfhe-c

@@ -1,0 +1,346 @@
+{
+  "info": {
+    "name": "tfhe-go API",
+    "_postman_id": "b3f7b4c6-7c4c-4af1-9f17-8c2f8e44a001",
+    "description": "Postman collection for tfhe-go homomorphic encryption service (boolean + uint8).\nBase URL is parameterized via {{base_url}} (default http://localhost:8080).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean Encrypt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"value\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/encrypt",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "encrypt"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean Decrypt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ciphertext\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/decrypt",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "decrypt"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean AND",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/and",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "and"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean OR",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/or",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "or"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean XOR",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/xor",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "xor"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Boolean NOT",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ciphertext\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/boolean/not",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "boolean",
+            "not"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 Encrypt (client)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"value\": 7\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/encrypt",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "encrypt"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 Encrypt (public)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"value\": 7\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/encrypt/public",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "encrypt",
+            "public"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 Decrypt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ciphertext\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/decrypt",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "decrypt"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 Add",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/add",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "add"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 BitAnd",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/bitand",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "bitand"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Uint8 BitXor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"left\": \"<base64>\",\n  \"right\": \"<base64>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/uint8/bitxor",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "uint8",
+            "bitxor"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
+
