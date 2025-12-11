@@ -2,10 +2,11 @@
 set -euo pipefail
 
 # Configurable variables
-TFHE_VERSION="${TFHE_VERSION:-v1.0.0}"
+TFHE_VERSION="${TFHE_VERSION:-1.0.0}"
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"   # darwin / linux
 ARCH="$(uname -m)"                              # arm64 / x86_64
-ARTIFACT_BASE="${ARTIFACT_BASE:-https://github.com/your-org/your-public-binaries/releases/download}"
+# Default to your public release location
+ARTIFACT_BASE="${ARTIFACT_BASE:-https://github.com/BaBiQ888/tfhe-go/releases/download}"
 
 ZIP_NAME="tfhe-release-${OS}-${ARCH}.zip"
 URL="${ARTIFACT_BASE}/${TFHE_VERSION}/${ZIP_NAME}"
