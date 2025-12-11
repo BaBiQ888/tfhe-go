@@ -20,7 +20,7 @@ fi
 
 URL="${ARTIFACT_BASE}/${TFHE_VERSION}/${PKG_NAME}"
 
-DEST_DIR="tfhe-c/release"
+DEST_DIR="tfhe-c/"
 TMP_ZIP="$(mktemp -t tfhe-XXXXXX.zip)"
 
 echo ">> Downloading ${URL}"
