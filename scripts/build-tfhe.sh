@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Ensure running with bash (pipefail requires bash); re-exec if needed.
+if [ -z "${BASH_VERSION:-}" ]; then
+  exec bash "$0" "$@"
+fi
 set -euo pipefail
 
 # Configurable variables
