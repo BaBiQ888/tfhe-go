@@ -30,7 +30,7 @@ func main() {
 	handler := httpapi.NewHandler(booleanService, uint8Service)
 	handler.Register(mux)
 
-	addr := ":8080"
+	addr := ":8999"
 	server := &http.Server{
 		Addr:              addr,
 		Handler:           mux,
